@@ -1,0 +1,24 @@
+.newsList {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 480px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 1.5rem;
+  z-index: -1;
+}
+
+.newsList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.newsList::-webkit-scrollbar-thumb {
+  background: rgb(201, 201, 201);
+  border-radius: 1rem;
+}
+
+.newsList::-webkit-scrollbar-thumb:hover {
+  background: rgb(155, 155, 155);
+}
