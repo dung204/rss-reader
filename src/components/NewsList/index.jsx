@@ -14,8 +14,8 @@ export default function NewsList({ items }) {
 
   return (
     <div ref={newsListRef} className={styles.newsList} onWheel={handleWheel}>
-      {items.map((metadata, index) => (
-        <NewsItem key={index} metadata={metadata} onWheel={handleWheel} />
+      {items.map(metadata => (
+        <NewsItem key={metadata.id} metadata={metadata} onWheel={handleWheel} />
       ))}
     </div>
   );

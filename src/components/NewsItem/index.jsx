@@ -14,7 +14,12 @@ export default function NewsItem({ metadata, onWheel }) {
       </a>
       <div className={styles.contentContainer}>
         <h2 className={styles.newsHeading}>
-          <a href={metadata.link} target='_blank' rel='noreferrer'>
+          <a
+            href={metadata.link}
+            title={metadata.title}
+            target='_blank'
+            rel='noreferrer'
+          >
             {metadata.title}
           </a>
         </h2>

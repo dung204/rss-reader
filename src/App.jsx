@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Parser from 'rss-parser';
 import NewsList from './components/NewsList';
+import URLInput from './components/URLInput';
 
-const RSS_URL = 'https://vnexpress.net/rss/tin-moi-nhat.rss';
+const RSS_URL = 'http://rss.cnn.com/rss/edition.rss';
 const parser = new Parser();
 
 function App() {
@@ -17,12 +18,15 @@ function App() {
       const DEFAULT_THUMBNAIL = feed.image.url;
       setItems(
         feed.items.map(item => {
+          const encodedHTML = item['content:encoded'] ?? item.content;
           const imgURL =
             new DOMParser()
-              .parseFromString(item.content, 'text/html')
+              .parseFromString(encodedHTML, 'text/html')
               .querySelector('img')?.src ?? DEFAULT_THUMBNAIL;
+
           return {
-            source: feed.description,
+            id: item.guid,
+            source: feed.title,
             title: item.title,
             link: item.link,
             pubDate: item.pubDate,
@@ -36,6 +40,7 @@ function App() {
 
   return (
     <div className='App'>
+      <URLInput />
       <NewsList items={items} />
     </div>
   );
