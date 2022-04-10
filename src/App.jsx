@@ -2,17 +2,23 @@ import { useEffect, useState } from 'react';
 import Parser from 'rss-parser';
 import NewsList from './components/NewsList';
 import URLInput from './components/URLInput';
+import NoURLScreen from './components/NoURLScreen';
+import LoadingURLScreen from './components/LoadingURLScreen';
 
 const RSS_URL = 'http://rss.cnn.com/rss/edition.rss';
 const parser = new Parser();
 
 function App() {
   const [items, setItems] = useState([]);
+  const [rssURL, setRssURL] = useState('');
+  const handleURL = url => setRssURL(url);
 
   useEffect(() => {
     (async () => {
+      if (!rssURL.trim()) return;
+
       const feed = await parser.parseURL(
-        `${process.env.REACT_APP_CORS_PROXY}${RSS_URL}`
+        `${process.env.REACT_APP_CORS_PROXY}${rssURL.trim()}`
       );
       console.log(feed);
       const DEFAULT_THUMBNAIL = feed.image.url;
@@ -36,12 +42,14 @@ function App() {
         })
       );
     })();
-  }, []);
+  }, [rssURL]);
 
   return (
     <div className='App'>
-      <URLInput />
-      <NewsList items={items} />
+      <URLInput onEnterURL={handleURL} />
+      {/* <NewsList items={items} /> */}
+      {/* <NoURLScreen /> */}
+      <LoadingURLScreen />
     </div>
   );
 }

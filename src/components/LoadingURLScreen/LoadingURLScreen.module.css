@@ -1,0 +1,46 @@
+.noURLScreen {
+  width: 100vw;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rssIcon {
+  width: 256px;
+  height: 256px;
+}
+
+.rssButton {
+  stroke: none;
+  fill: rgb(194, 194, 194);
+  animation: turningOrange 2.5s infinite;
+}
+
+.rssSymbol {
+  stroke: none;
+  fill: white;
+  opacity: 0;
+  animation: fadeInOut 2.5s calc(var(--exist-order) * 0.2s) infinite;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes turningOrange {
+  0%,
+  100% {
+    fill: rgb(194, 194, 194);
+  }
+  40% {
+    fill: orange;
+  }
+}

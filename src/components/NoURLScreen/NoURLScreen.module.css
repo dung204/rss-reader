@@ -1,0 +1,23 @@
+.noURLScreen {
+  width: 100vw;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rssIcon {
+  width: 256px;
+  height: 256px;
+}
+
+.rssButton {
+  stroke: none;
+  fill: rgb(194, 194, 194);
+}
+
+.rssSymbol {
+  stroke: none;
+  fill: white;
+}

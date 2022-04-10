@@ -1,2 +1,5 @@
 .URLInput {
+  background: url('../../svg/url_logo.svg') no-repeat left;
+  background-size: 20px;
+  padding-left: 25px;
 }

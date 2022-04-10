@@ -1,12 +1,10 @@
 .newsList {
-  padding: 0;
   margin: 0;
   width: 100vw;
-  height: 480px;
+  height: 450px;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding: 1.5rem;
   z-index: -1;
 }
 
